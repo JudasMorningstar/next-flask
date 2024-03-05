@@ -5,6 +5,18 @@
 await import("./src/env.js");
 
 /** @type {import("next").NextConfig} */
-const config = {};
+const config = {
+  rewrites: async () => {
+    return [
+      {
+        source: "/flask/:path*",
+        destination:
+          process.env.NODE_ENV === "development"
+            ? "http://127.0.0.1:5117/flask/:path*"
+            : "/flask/",
+      },
+    ];
+  },
+};
 
 export default config;

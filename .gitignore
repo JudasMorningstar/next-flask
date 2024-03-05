@@ -20,6 +20,9 @@ next-env.d.ts
 # production
 /build
 
+# python virtual env
+/.venv/
+
 # misc
 .DS_Store
 *.pem
