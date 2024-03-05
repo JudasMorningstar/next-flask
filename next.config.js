@@ -9,11 +9,11 @@ const config = {
   rewrites: async () => {
     return [
       {
-        source: "/flask/:path*",
+        source: "/api/:path*",
         destination:
           process.env.NODE_ENV === "development"
-            ? "http://127.0.0.1:5117/flask/:path*"
-            : "/flask/",
+            ? "http://127.0.0.1:5117/api/:path*"
+            : "/api/",
       },
     ];
   },
