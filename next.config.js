@@ -9,11 +9,11 @@ const config = {
   rewrites: async () => {
     return [
       {
-        source: "/deepface/api/:path*",
+        source: "/deepface/:path*",
         destination:
           process.env.NODE_ENV === "development"
-            ? "http://127.0.0.1:5117/deepface/api/:path*"
-            : "/deepface/api/",
+            ? "http://127.0.0.1:5117/deepface/:path*"
+            : "/deepface/",
       },
     ];
   },
