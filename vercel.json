@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "routes": [
+    { "src": "/deepface/(.)", "dest": "/deepface/$1" },
+    { "src": "/next-api/(.)", "dest": "/next-flask/api/$1" },
+    { "src": "/(.*)", "dest": "/next-flask/$1" }
+  ],
+  "builds": [
+    { "src": "/deepface/", "use": "@vercel/static" },
+    {
+      "src": "/next-flask/",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "next-flask/.next" }
+    }
+  ],
+  "env": {
+    "FLASK_ENV": "production",
+    "NEXT_PUBLIC_API_URL": "/next-api"
+  }
+}
